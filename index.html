@@ -60,6 +60,7 @@
             }
 
             .input-text {
+                display: block;
                 position:relative;
                 border: 1px dotted #666666;
                 border-top: none;
@@ -70,7 +71,7 @@
                 border-top: 1px dotted #666666;
             }
 
-            label {
+            span {
                 position: absolute;
                 display: block;
                 font-size: .6em;
@@ -96,11 +97,11 @@
                 -webkit-box-shadow: none;
             }
 
-            input:focus + label {
+            input:focus + span {
                 color: #0091F2;
             }
 
-            input:not(.empty) + label {
+            input:not(.empty) + span {
                 opacity: 1;
                 top: 2;
             }
@@ -108,18 +109,18 @@
         </style>
     </head>
     <body>
-        <div class="input-text">
+        <label class="input-text">
             <input class="empty" type="text" placeholder="last name"/>
-            <label>last name</label>
-        </div>
-        <div class="input-text">
+            <span>last name</span>
+        </label>
+        <label class="input-text">
             <input class="empty" type="text" placeholder="first name"/>
-            <label>first name</label>
-        </div>
-        <div class="input-text">
+            <span>first name</span>
+        </label>
+        <label class="input-text">
             <input class="empty" type="text" placeholder="street"/>
-            <label>street</label>
-        </div>
+            <span>street</span>
+        </label>
         <script type="text/javascript">
 
             window.onload = function() {
