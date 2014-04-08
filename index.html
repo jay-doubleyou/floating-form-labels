@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <style>
+
+            /* http://meyerweb.com/eric/tools/css/reset/
+               v2.0 | 20110126
+               License: none (public domain)
+            */
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed,
+            figure, figcaption, footer, header, hgroup,
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure,
+            footer, header, hgroup, menu, nav, section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            ol, ul {
+                list-style: none;
+            }
+            blockquote, q {
+                quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+                content: '';
+                content: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            /*
+             * The Style
+             */
+
+            body {
+                font-family: Arial, Helvtica, sans-serif;
+                padding: 1em;
+            }
+
+            .input-text {
+                position:relative;
+                border: 1px dotted #666666;
+                border-top: none;
+                width: 300px;
+            }
+
+            .input-text:first-child {
+                border-top: 1px dotted #666666;
+            }
+
+            label {
+                position: absolute;
+                display: block;
+                font-size: .6em;
+                margin-left: 4px;
+                font-weight: bold;
+                color: #666;
+                top: .7em;
+                opacity: 0;
+                transition: color .5s ease, top .25s ease, opacity .25s ease;
+            }
+
+            input {
+                margin-top: 1em;
+                padding: 2px;
+                border: 1px solid #777;
+                color: #000;
+                border: 1px solid transparent;
+                outline: none;
+            }
+
+            input:focus {
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+
+            input:focus + label {
+                color: #0091F2;
+            }
+
+            input:not(.empty) + label {
+                opacity: 1;
+                top: 2;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="input-text">
+            <input class="empty" type="text" placeholder="last name"/>
+            <label>last name</label>
+        </div>
+        <div class="input-text">
+            <input class="empty" type="text" placeholder="first name"/>
+            <label>first name</label>
+        </div>
+        <div class="input-text">
+            <input class="empty" type="text" placeholder="street"/>
+            <label>street</label>
+        </div>
+        <script type="text/javascript">
+
+            window.onload = function() {
+
+                var inputs = document.getElementsByTagName('input');
+
+                for (var i=0; i<inputs.length; i++) {
+
+                    var inputEl = inputs[i];
+
+                    if (inputEl.value != '') {
+                        inputEl.classList.remove('empty');
+                    }
+
+                    inputEl.addEventListener('keyup', function() {
+
+                        var el = this;
+
+                        if (el.value == '') {
+                            el.classList.add('empty');
+                        }
+                        else {
+                            el.classList.remove('empty');
+                        }
+                    });
+
+                    inputEl.addEventListener('blur', function() {
+
+                        var el = this;
+
+                        if (el.value == '') {
+                            el.classList.add('empty');
+                        }
+                        else {
+                            el.classList.remove('empty');
+                        }
+                    });
+                }
+            };
+        </script>
+    </body>
+</html>
